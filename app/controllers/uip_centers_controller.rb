@@ -11,8 +11,7 @@ class UipCentersController < ApplicationController
   # GET /uip_centers/1.json
   def show
     @uip_centers = UipCenter.find(params[:id])
-    debugger
-    
+    #debugger    
     a = "aaa"
   end
 
