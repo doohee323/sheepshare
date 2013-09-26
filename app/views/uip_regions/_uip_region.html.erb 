@@ -1,0 +1,21 @@
+<p>
+  <b>region_code:</b>
+  <%= uip_region.region_code %>
+</p>
+<p>
+  <b>name:</b>
+  <%= uip_region.name %>
+</p>
+<p>
+  <b>chief:</b>
+  <%= uip_region.chief %>
+</p>
+<p>
+  <b>address:</b>
+  <%= uip_region.address %>
+</p>
+
+<p>
+	<%= link_to "delete", [uip_region.uip_center, uip_region], :method => :delete, :
+		data => { :confirm => "Are you sure?"} %>	
+<p>

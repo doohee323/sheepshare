@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  code: MyString
+  region_code: MyString
+  name: MyString
+  chief: MyString
+  address: MyString
+  uip_center_id: 
+
+two:
+  code: MyString
+  region_code: MyString
+  name: MyString
+  chief: MyString
+  address: MyString
+  uip_center_id: 

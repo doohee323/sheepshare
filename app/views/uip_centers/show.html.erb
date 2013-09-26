@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @uip_center.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @uip_center.name %>
+</p>
+
+<p>
+  <strong>Chief:</strong>
+  <%= @uip_center.chief %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @uip_center.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @uip_center.phone %>
+</p>
+
+<h2>uip_regions</h2>
+<%= debug @uip_center.uip_regions%>
+<%= render @uip_center.uip_regions %>
+ 
+<h2>Add a uip_region:</h2>
+<%= render "uip_regions/form" %>
+
+<%= link_to 'Edit', edit_uip_center_path(@uip_center) %> |
+<%= link_to 'Back', uip_centers_path %>
+
+
