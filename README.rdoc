@@ -21,8 +21,24 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* 외부로부터 API로 접근할 때 발생하는 Cross Domain 문제를 해결하기 위해서 `rack-cors` 젬을 추가하고 번들 인스톨합니다. 
 
+```
+gem 'rack-cors', :require => 'rack/cors'
+```
+
+* 그리고 약간의 설정이 필요합니다. (config/application.rb)
+
+```
+config.middleware.use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :patch, :options]
+  end
+end
+```
+
+* 이제 프로젝트에 필요한 리소스를 추가하고 JSON API를 작성한 후 서버를 시작하면 외부로부터 해당 API로 RESTful하게 접근할 수 있게 됩니다. 
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

@@ -47,3 +47,4 @@ gem 'debugger', group: [:development, :test]
 gem 'therubyracer'
 gem 'execjs'
 
+gem 'rack-cors'
