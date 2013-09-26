@@ -11,10 +11,10 @@ module Sheepshare
   
     config.middleware.use Rack::Cors do
       allow do
-        //origins '*'
-        //resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :patch, :options]
+        #origins '*'
+        #resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :patch, :options]
         
-		origins '*'
+		    origins '*'
 
         resource '*',
           :headers => :any,
