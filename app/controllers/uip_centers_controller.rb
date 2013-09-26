@@ -43,6 +43,7 @@ class UipCentersController < ApplicationController
   # PATCH/PUT /uip_centers/1.json
   def update
     respond_to do |format|
+      @uip_center.update(uip_center_params)
       if @uip_center.update(uip_center_params)
         format.html { redirect_to @uip_center, notice: 'Uip center was successfully updated.' }
         format.json { head :no_content }
@@ -71,9 +72,8 @@ class UipCentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def uip_center_params
-        debugger
 
-      params.require(:uip_center).permit(:code, :name, :chief, :address, :phone)
+      #params.require(:uip_center).permit(:code, :name, :chief, :address, :phone)
       data = params.require(:uip_center)
       data.each do |p|
         # hash = JSON.parse(json_data)
@@ -84,9 +84,11 @@ class UipCentersController < ApplicationController
         p.delete("url")
         p.delete("rowStatus")
 
-        params.require(p.to_hash).permit(:code, :name, :chief, :address, :phone)
+        # params.require(p.to_hash).permit(:code, :name, :chief, :address, :phone)
 
-        # ActionController::Parameters.new(p.to_hash).permit(:code, :name, :chief, :address, :phone)
+        ActionController::Parameters.new(p.to_hash).permit(:code, :name, :chief, :address, :phone)
+
+        debugger
       end
     end
 end

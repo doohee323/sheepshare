@@ -1,6 +1,5 @@
 class UipRegionsController < ApplicationController
   #skip_before_filter :verify_authenticity_token, :only => [:create, :destroy]
-  protect_from_forgery with: :null_session
   
   def index
     @uip_regions = UipRegion.all
