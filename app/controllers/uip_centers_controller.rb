@@ -1,5 +1,6 @@
 class UipCentersController < ApplicationController
   before_action :set_uip_center, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /uip_centers
   # GET /uip_centers.json
