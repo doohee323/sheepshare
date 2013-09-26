@@ -7,9 +7,9 @@ Sheepshare::Application.routes.draw do
   # get "uip_regions/destroy"
   # get "welcome/index"
   
-  # resources :uip_centers do
-     # resources :uip_regions
-  # end
+  resources :uip_centers do
+     resources :uip_regions
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

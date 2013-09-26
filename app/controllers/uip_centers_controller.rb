@@ -1,7 +1,6 @@
 class UipCentersController < ApplicationController
   before_action :set_uip_center, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery with: :null_session
-
+  
   # GET /uip_centers
   # GET /uip_centers.json
   def index
@@ -72,6 +71,22 @@ class UipCentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def uip_center_params
+        debugger
+
       params.require(:uip_center).permit(:code, :name, :chief, :address, :phone)
+      data = params.require(:uip_center)
+      data.each do |p|
+        # hash = JSON.parse(json_data)
+        # hash["firstname"] = "John"
+        # hash.delete("lastname")
+        # new_json = hash.to_json
+
+        p.delete("url")
+        p.delete("rowStatus")
+
+        params.require(p.to_hash).permit(:code, :name, :chief, :address, :phone)
+
+        # ActionController::Parameters.new(p.to_hash).permit(:code, :name, :chief, :address, :phone)
+      end
     end
 end
