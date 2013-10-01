@@ -3,20 +3,20 @@ class UipRegionsController < ApplicationController
   
   def index
     @uip_regions = UipRegion.all
+    render json: @uip_regions
   end
     
   # GET /uip_regions/1
   # GET /uip_regions/1.json
   def show
     @uip_regions = UipRegion.find(params[:id])
-    #debugger    
-    a = "aaa"
+    render json: @uip_regions
   end    
     
 	def create
-		@uip_center = UipCenter.find(params[:uip_center_id])
-    @uip_region = @uip_center.uip_regions.create(params[:uip_region].permit(:code, :region_code, :name, :chief, :address))
-		redirect_to uip_center_path(@uip_center)
+	    @uip_center = UipCenter.find(params[:uip_center_id])
+	    @uip_region = @uip_center.uip_regions.create(params[:uip_region].permit(:code, :region_code, :name, :chief, :address))
+	    redirect_to uip_center_path(@uip_center)
 	end
 
 	def destroy
