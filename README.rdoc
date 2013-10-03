@@ -1,44 +1,46 @@
-== README
+sheepshare
+========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+web app with angular.js and bootstrap
 
-Things you may want to cover:
+This is made with these traits.
 
-* Ruby version
+# 0. yeoman and bower
+# 1. angular.js 
+     https://github.com/doohee323/sheepweb.git
+# 2. bootstrap
+# 3. server-side
+     - ruby on rails : https://github.com/doohee323/sheepshare
+     - or springframework : https://github.com/doohee323/tz.sheepshare
 
-* System dependencies
+this app is deployed at heroku
 
-* Configuration
+http://sheepweb.herokuapp.com
 
-* Database creation
+There are some articles related with this app.
 
-* Database initialization
+- Deploy angular.js app in heroku with yeoman
+     - http://doohee323.blogspot.kr/2013/10/deploy-angularjs-app-in-heroku-with.html
 
-* How to run the test suite
+- Porting rails from git to heroku
+     - http://doohee323.blogspot.kr/2013/10/porting-rails-from-git-to-heroku.html
 
-* Services (job queues, cache servers, search engines, etc.)
+# Deployment instructions
 
-* Deployment instructions
+ì™¸ë¶€ë¡œë¶€í„° APIë¡œ ì ‘ê·¼í•  ë•Œ ë°œìƒí•˜ëŠ” Cross Domain ë¬¸ì œë¥¼ í•´ê²°í•˜ê¸° ìœ„í•´ì„œ `rack-cors` ì ¬ì„ ì¶”ê°€í•˜ê³  ë²ˆë“¤ ì¸ìŠ¤í†¨í•©ë‹ˆë‹¤.
 
-* ¿ÜºÎ·ÎºÎÅÍ API·Î Á¢±ÙÇÒ ¶§ ¹ß»ıÇÏ´Â Cross Domain ¹®Á¦¸¦ ÇØ°áÇÏ±â À§ÇØ¼­ `rack-cors` ÁªÀ» Ãß°¡ÇÏ°í ¹øµé ÀÎ½ºÅçÇÕ´Ï´Ù. 
+â€œ` gem â€˜rack-corsâ€™, :require => â€˜rack/corsâ€™ â€œ`
 
-```
-gem 'rack-cors', :require => 'rack/cors'
-```
+ê·¸ë¦¬ê³  ì•½ê°„ì˜ ì„¤ì •ì´ í•„ìš”í•©ë‹ˆë‹¤. (config/application.rb)
 
-* ±×¸®°í ¾à°£ÀÇ ¼³Á¤ÀÌ ÇÊ¿äÇÕ´Ï´Ù. (config/application.rb)
+â€œ` config.middleware.use Rack::Cors do
 
-```
-config.middleware.use Rack::Cors do
-  allow do
-    origins '*'
-    resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :patch, :options]
-  end
+allow do
+  origins '*'
+  resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :patch, :options]
 end
-```
+end â€œ`
 
-* ÀÌÁ¦ ÇÁ·ÎÁ§Æ®¿¡ ÇÊ¿äÇÑ ¸®¼Ò½º¸¦ Ãß°¡ÇÏ°í JSON API¸¦ ÀÛ¼ºÇÑ ÈÄ ¼­¹ö¸¦ ½ÃÀÛÇÏ¸é ¿ÜºÎ·ÎºÎÅÍ ÇØ´ç API·Î RESTfulÇÏ°Ô Á¢±ÙÇÒ ¼ö ÀÖ°Ô µË´Ï´Ù. 
+ì´ì œ í”„ë¡œì íŠ¸ì— í•„ìš”í•œ ë¦¬ì†ŒìŠ¤ë¥¼ ì¶”ê°€í•˜ê³  JSON APIë¥¼ ì‘ì„±í•œ í›„ ì„œë²„ë¥¼ ì‹œì‘í•˜ë©´ ì™¸ë¶€ë¡œë¶€í„° í•´ë‹¹ APIë¡œ RESTfulí•˜ê²Œ ì ‘ê·¼í•  ìˆ˜ ìˆê²Œ ë©ë‹ˆë‹¤.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Please feel free to use a different markup language if you do not plan to run rake doc:app.
