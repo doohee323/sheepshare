@@ -3,6 +3,27 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+gem 'rails-api'
+
+# Use sqlite3 as the database for Active Record
+#gem 'sqlite3'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano', :group => :development
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
+
+######## added gems ###############
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', :group => [:development, :test]
 group :production do
@@ -10,47 +31,12 @@ group :production do
   gem 'pg'
 end
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+# cross domain issue
+gem 'rack-cors', :require => 'rack/cors'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+# works out of the box with ember-data
+gem 'active_model_serializers'
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
-
-gem 'therubyracer'
-gem 'execjs'
-
-gem 'rails-api'
-gem 'rack-cors'
 

@@ -1,29 +1,49 @@
 class UipRegionsController < ApplicationController
-  #skip_before_filter :verify_authenticity_token, :only => [:create, :destroy]
-  
+  # GET /uip_regions
+  # GET /uip_regions.json
   def index
-    @uip_regions = UipRegion.all
+    @uip_regions = UipRegion.where("uip_center_id = ?", params[:uip_center_id])
     render json: @uip_regions
   end
-    
+
   # GET /uip_regions/1
   # GET /uip_regions/1.json
   def show
-    @uip_regions = UipRegion.find(params[:id])
-    render json: @uip_regions
-  end    
-    
-	def create
-	    @uip_center = UipCenter.find(params[:uip_center_id])
-	    @uip_region = @uip_center.uip_regions.create(params[:uip_region].permit(:code, :region_code, :name, :chief, :address))
-	    redirect_to uip_center_path(@uip_center)
-	end
+    @uip_region = UipRegion.find(params[:id])
 
-	def destroy
-		@uip_center = UipCenter.find(param[:uip_center_code])
-		@uip_region = @uip_center.uip_regions.find(params[:code])
-    @uip_center.destroy
+    render json: @uip_region
+  end
+
+  # POST /uip_regions
+  # POST /uip_regions.json
+  def create
+    @uip_region = UipRegion.new(params[:uip_region])
+
+    if @uip_region.save
+      render json: @uip_region, status: :created, location: @uip_region
+    else
+      render json: @uip_region.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /uip_regions/1
+  # PATCH/PUT /uip_regions/1.json
+  def update
+    @uip_region = UipRegion.find(params[:id])
+
+    if @uip_region.update(params[:uip_region])
+      head :no_content
+    else
+      render json: @uip_region.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /uip_regions/1
+  # DELETE /uip_regions/1.json
+  def destroy
+    @uip_region = UipRegion.find(params[:id])
     @uip_region.destroy
-		redirect_to uip_center_path(@uip_center)
+
+    head :no_content
   end
 end
